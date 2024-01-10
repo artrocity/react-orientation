@@ -11,14 +11,22 @@ function Card(props) {
     // React has determined they should be as followed
     const [ myName, setMyName] = useState('Initial Value - Default');
 
+    const [ myNumber, setMyNumber] = useState('0');
+
     function changeName() {
         // Goal of function it to set name to new name
         setMyName('Ryan'); // Whatever is passed between the () is the new value for myName
-    }
+    };
+
+    function incrementNumber() {
+        let newNumber = parseInt(myNumber) + 1;
+        setMyNumber(newNumber);
+    };
 
     return (
         <div className="card">
-            <button>count is 0</button>
+            {/* Change this 0 to  */}
+            <button onClick={incrementNumber}>Count is : {myNumber}</button>
             <p>{props.globalName ? props.globalName : myName}</p>
             <button onClick={changeName}>Change Name</button>
             <p>
